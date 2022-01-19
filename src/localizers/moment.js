@@ -31,7 +31,7 @@ export const formats = {
   timeGutterFormat: 'LT',
 
   monthHeaderFormat: 'MMMM YYYY',
-  dayHeaderFormat: 'dddd MMM DD',
+  dayHeaderFormat: 'dddd DD MMM',
   dayRangeHeaderFormat: weekRangeFormat,
   agendaHeaderFormat: dateRangeFormat,
 
