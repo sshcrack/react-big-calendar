@@ -77,7 +77,6 @@ function Agenda({
           style={userProps.style}
         >
           {first}
-          <td className="rbc-agenda-time-cell">{timeRangeLabel(day, event)}</td>
           <td
             className="rbc-agenda-event-cell"
             onClick={e => onSelectEvent && onSelectEvent(event, e)}
@@ -181,9 +180,6 @@ function Agenda({
               <tr>
                 <th className="rbc-header" ref={dateColRef}>
                   {messages.date}
-                </th>
-                <th className="rbc-header" ref={timeColRef}>
-                  {messages.time}
                 </th>
                 <th className="rbc-header">{messages.event}</th>
               </tr>
