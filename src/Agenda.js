@@ -23,7 +23,6 @@ function Agenda({
 }) {
   const headerRef = useRef(null)
   const dateColRef = useRef(null)
-  const timeColRef = useRef(null)
   const contentRef = useRef(null)
   const tbodyRef = useRef(null)
 
@@ -91,40 +90,6 @@ function Agenda({
     }, [])
   }
 
-  const timeRangeLabel = (day, event) => {
-    let labelClass = '',
-      TimeComponent = components.time,
-      label = localizer.messages.allDay
-
-    let end = accessors.end(event)
-    let start = accessors.start(event)
-
-    if (!accessors.allDay(event)) {
-      if (localizer.eq(start, end)) {
-        label = localizer.format(start, 'agendaTimeFormat')
-      } else if (localizer.isSameDate(start, end)) {
-        label = localizer.format({ start, end }, 'agendaTimeRangeFormat')
-      } else if (localizer.isSameDate(day, start)) {
-        label = localizer.format(start, 'agendaTimeFormat')
-      } else if (localizer.isSameDate(day, end)) {
-        label = localizer.format(end, 'agendaTimeFormat')
-      }
-    }
-
-    if (localizer.gt(day, start, 'day')) labelClass = 'rbc-continues-prior'
-    if (localizer.lt(day, end, 'day')) labelClass += ' rbc-continues-after'
-
-    return (
-      <span className={labelClass.trim()}>
-        {TimeComponent ? (
-          <TimeComponent event={event} day={day} label={label} />
-        ) : (
-          label
-        )}
-      </span>
-    )
-  }
-
   const _adjustHeader = () => {
     if (!tbodyRef.current) return
 
@@ -143,7 +108,6 @@ function Agenda({
 
     if (widths[0] !== _widths[0] || widths[1] !== _widths[1]) {
       dateColRef.current.style.width = _widths[0] + 'px'
-      timeColRef.current.style.width = _widths[1] + 'px'
     }
 
     if (isOverflowing) {
