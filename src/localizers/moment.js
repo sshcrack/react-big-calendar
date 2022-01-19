@@ -35,7 +35,7 @@ export const formats = {
   dayRangeHeaderFormat: weekRangeFormat,
   agendaHeaderFormat: dateRangeFormat,
 
-  agendaDateFormat: 'ddd MMM DD',
+  agendaDateFormat: 'ddd DD MMM',
   agendaTimeFormat: 'LT',
   agendaTimeRangeFormat: timeRangeFormat,
 }
